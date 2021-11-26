@@ -1,4 +1,4 @@
-let VinylShop = (function () {
+const VinylShop = (function () {
 
     function hello() {
         console.log('The Vinyl Shop JavaScript works! 🙂');

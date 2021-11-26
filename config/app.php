@@ -135,7 +135,7 @@ return [
     */
 
     'providers' => [
-
+        App\Providers\HelperServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
@@ -190,6 +190,7 @@ return [
 
     'aliases' => [
 
+        'Json' => Facades\App\Helpers\Json::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
@@ -226,7 +227,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
     ],
 
 ];

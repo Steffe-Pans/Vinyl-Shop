@@ -1,3 +1,6 @@
 <footer class="container border-top">
-    <p>The Vinyl Shop - &#169; {{date('Y')}}</p>
+    <p>
+        The Vinyl shop - &copy; {{ date('Y') }} <br>
+        <span class="text-muted">Laravel version: {{ app()-> version() }}</span>
+    </p>
 </footer>
