@@ -36,8 +36,9 @@
                                    title="Edit {{ $genre->name }}">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <button type="submit" class="btn btn-outline-danger"
+                                <button type="button" class="btn btn-outline-danger deleteGenre"
                                         data-toggle="tooltip"
+                                        data-records="{{ $genre->records_count }}"
                                         title="Delete {{ $genre->name }}">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
@@ -49,4 +50,18 @@
             </tbody>
         </table>
     </div>
+@endsection
+@section('script_after')
+    <script>
+        $('.deleteGenre').click(function () {
+            const records = $(this).data('records');
+            let msg = `Delete this genre?`;
+            if (records > 0) {
+                msg += `\nThe ${records} records of this genre will also be deleted!`
+            }
+            if (confirm(msg)) {
+                $(this).closest('form').submit();
+            }
+        })
+    </script>
 @endsection

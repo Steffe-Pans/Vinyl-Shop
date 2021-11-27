@@ -6,7 +6,7 @@
            placeholder="Name"
            minlength="3"
            required
-           value="{{ old('name', $genre->name) }}">
+           value="{{ old('name', $genre->name ?? '') }}">
     @error('name')
     <div class="invalid-feedback">{{ $message }}</div>
     @enderror

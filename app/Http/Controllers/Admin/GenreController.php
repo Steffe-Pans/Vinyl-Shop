@@ -42,7 +42,20 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate $request
+        $this->validate($request,[
+            'name' => 'required|min:3|unique:genres,name'
+        ]);
+
+        // Create new genre
+        $genre = new Genre();
+        $genre->name = $request->name;
+        $genre->save();
+
+        // Flash a success message to the session
+        session()->flash('success', "The genre <b>$genre->name</b> has been added");
+        // Redirect to the master page
+        return redirect('admin/genres');
     }
 
     /**
@@ -95,6 +108,8 @@ class GenreController extends Controller
      */
     public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+        session()->flash('success', "The genre <b>$genre->name</b> has been deleted");
+        return redirect('admin/genres');
     }
 }
